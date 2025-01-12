@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Photography Gallery</h1>
+    </header>
+    <main>
+        <div class="gallery">
+            <?php
+            // Directory containing images
+            $dir = 'images/';
+            // Get all image files from the directory
+            $images = glob($dir . "*.{jpg,jpeg,png,gif}", GLOB_BRACE);
+            foreach($images as $image) {
+                echo '<div class="gallery-item">';
+                echo '<img src="' . $image . '" alt="Photography">';
+                echo '</div>';
+            }
+            ?>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; <?php echo date("Y"); ?> My Photography Gallery</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
